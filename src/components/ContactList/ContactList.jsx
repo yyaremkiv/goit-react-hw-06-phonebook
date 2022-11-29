@@ -1,6 +1,11 @@
+import { useDispatch } from 'react-redux';
+import { deleteContact } from 'redux/phoneBookSlice';
+
 import css from './ContactList.module.scss';
 
-export const ContactList = ({ contacts, delContact }) => {
+export const ContactList = ({ contacts }) => {
+  const dispatch = useDispatch();
+
   return (
     <ul className={css.contactList}>
       {contacts.map(({ id, name, number }) => {
@@ -12,9 +17,9 @@ export const ContactList = ({ contacts, delContact }) => {
             <button
               className={css.contactList__button}
               type="button"
-              onClick={e => delContact(id)}
+              onClick={() => dispatch(deleteContact({ id }))}
             >
-              Delete
+              Delete{id}
             </button>
           </li>
         );
