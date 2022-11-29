@@ -7,7 +7,7 @@ import css from './ContactForm.module.scss';
 
 export const ContactForm = () => {
   const [contact, setContact] = useState({ name: '', number: '' });
-  const contactsList = useSelector(state => state.phoneBook);
+  const contactsList = useSelector(state => state.phoneBook.contacts);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {

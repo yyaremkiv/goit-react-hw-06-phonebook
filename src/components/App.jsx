@@ -10,7 +10,8 @@ import { ContactList } from '../components/ContactList/ContactList';
 
 export const App = () => {
   const [filter, setFilter] = useState('');
-  const contacts = useSelector(state => state.phoneBook);
+  const contacts = useSelector(state => state.phoneBook.contacts);
+
   const filteredContacts = contacts.filter(contact =>
     contact.name.includes(filter)
   );
