@@ -8,8 +8,9 @@ export const phoneBookSlice = createSlice({
       state.push({ ...action.payload, id: new Date().toISOString() });
     },
     deleteContact(state, action) {
-      console.log(action.payload.id);
-      state = state.filter(contact => contact.id !== action.payload.id);
+      return (state = state.filter(
+        contact => contact.id !== action.payload.id
+      ));
     },
   },
 });

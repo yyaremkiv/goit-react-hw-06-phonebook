@@ -19,7 +19,7 @@ export const ContactList = ({ contacts }) => {
               type="button"
               onClick={() => dispatch(deleteContact({ id }))}
             >
-              Delete{id}
+              Delete
             </button>
           </li>
         );
