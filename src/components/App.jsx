@@ -7,7 +7,7 @@ import { Filter } from './Filter/Filter';
 import { ContactList } from '../components/ContactList/ContactList';
 
 export const App = () => {
-  const filter = useSelector(state => state.phoneBook.filter);
+  const filter = useSelector(state => state.filter.filter);
   const contacts = useSelector(state => state.phoneBook.contacts);
 
   const filteredContacts = contacts.filter(contact =>

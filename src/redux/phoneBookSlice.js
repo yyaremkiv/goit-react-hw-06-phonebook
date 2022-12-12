@@ -14,14 +14,10 @@ export const phoneBookSlice = createSlice({
         contact => contact.id !== action.payload.id
       );
     },
-    updateFilter(state, action) {
-      state.filter = action.payload;
-    },
   },
 });
 
-export const { addContact, deleteContact, updateFilter } =
-  phoneBookSlice.actions;
+export const { addContact, deleteContact } = phoneBookSlice.actions;
 
 const persistConfig = {
   key: 'root',

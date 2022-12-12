@@ -1,12 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { updateFilter } from 'redux/phoneBookSlice';
+import { updateFilter } from 'redux/filterSlice';
 import css from './Filter.module.scss';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.phoneBook.filter);
+  const filter = useSelector(state => state.filter.filter);
 
-  const onChange = item => {
+  const onChange = e => {
+    const item = e.target.value.trim().toLocaleLowerCase();
     dispatch(updateFilter(item));
   };
 
@@ -17,18 +18,9 @@ export const Filter = () => {
         <input
           className={css.filter__input}
           type="text"
-          onChange={e => onChange(e.target.value.trim().toLocaleLowerCase())}
+          onChange={onChange}
           value={filter}
         ></input>
-        {filter && (
-          <button
-            className={css.button}
-            type="button"
-            onClick={() => dispatch(updateFilter(''))}
-          >
-            Clear filter
-          </button>
-        )}
       </label>
     </>
   );
