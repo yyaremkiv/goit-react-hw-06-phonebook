@@ -1,7 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
-
 import css from './app.module.scss';
 
 import { ContactForm } from '../components/ContactForm/ContactForm';
@@ -9,7 +7,7 @@ import { Filter } from './Filter/Filter';
 import { ContactList } from '../components/ContactList/ContactList';
 
 export const App = () => {
-  const [filter, setFilter] = useState('');
+  const filter = useSelector(state => state.phoneBook.filter);
   const contacts = useSelector(state => state.phoneBook.contacts);
 
   const filteredContacts = contacts.filter(contact =>
@@ -26,7 +24,7 @@ export const App = () => {
         <div>
           <h2>Contacts</h2>
           <div className={css.contacts__container}>
-            <Filter onChange={setFilter} />
+            <Filter />
             <ContactList contacts={contactsList} />
           </div>
         </div>
