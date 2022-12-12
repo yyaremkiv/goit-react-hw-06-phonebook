@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage';
 
 export const phoneBookSlice = createSlice({
   name: 'contacts',
-  initialState: { contacts: [], filter: '' },
+  initialState: { contacts: [] },
   reducers: {
     addContact(state, action) {
       state.contacts.push({ ...action.payload, id: new Date().toISOString() });
